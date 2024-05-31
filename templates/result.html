@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>License Plate Recognition Result</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar {
+            background-color: #ff6f61;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar-brand {
+            color: #ffffff !important;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .result-section {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .btn-custom {
+            background-color: #ff6f61;
+            border: none;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-custom:hover {
+            background-color: #e55a4f;
+        }
+        .image-container {
+            margin-bottom: 30px;
+        }
+        .detected-text {
+            font-size: 1.5em;
+            color: #343a40;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">License Plate Recognition</a>
+    </nav>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 result-section">
+                <h1 class="text-center">Detected License Plate Text</h1>
+                <p class="detected-text text-center">{{ text }}</p>
+                <div class="row image-container">
+                    <div class="col-md-6 text-center">
+                        <h2>Input Image</h2>
+                        <img src="{{ url_for('send_upload', filename=input_image.split('/')[-1]) }}" class="img-fluid rounded shadow" alt="Input Image">
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <h2>Output Image</h2>
+                        <img src="{{ output_image }}" class="img-fluid rounded shadow" alt="Output Image">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="/" class="btn btn-custom">Upload another image</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
